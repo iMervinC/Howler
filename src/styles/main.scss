@@ -1,2 +1,5 @@
-@import './components/burger';
-@import './components/frame';
+.main-grid {
+  display: grid;
+  grid-template-columns: 1fr minmax(0, 600px) 1fr;
+  grid-template-rows: 1fr;
+}

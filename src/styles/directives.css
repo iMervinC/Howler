@@ -1,24 +1,16 @@
 @layer base {
-  body {
+  /* body {
     @apply bg-black;
-  }
+  } */
   :root {
     font-family: 'geomanist';
   }
-  ::selection {
+  /* ::selection {
     color: black;
     background: #00e0ee;
-  }
+  } */
 }
 
 .contain {
   @apply mx-auto container;
-}
-
-.nav {
-  @apply flex fixed justify-between text-custom-offwhite items-center contain mt-14 sm:mt-28 left-1/2 transform -translate-x-1/2 z-50 md:z-40;
-}
-
-.nav-mobile {
-  @apply font-bold flex flex-col justify-center gap-10 text-xl text-black absolute bg-custom-offwhite  h-screen -top-14 sm:-top-28 px-10 w-56 transform translate-x-10;
 }

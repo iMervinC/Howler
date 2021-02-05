@@ -1,21 +1,32 @@
-const colors = require('tailwindcss/colors')
+const { url } = require('inspector')
 
 module.exports = {
   purge: ['./pages/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],
   darkMode: false, // or 'media' or 'class'
   theme: {
-    container: {
-      padding: '10rem',
-    },
     extend: {
+      backgroundImage: (theme) => ({
+        logo: "url('/Logo.svg')",
+        logoW: "url('/LogoW.svg')",
+        'logo-mobile': "url('/pic1.svg')",
+      }),
       colors: {
         custom: {
-          DEFAULT: '#00E0EE',
-          offwhite: '#E5E5E5',
+          DEFAULT: '#8C32FF',
+          twitter: '#00D1FF',
         },
       },
-      container: {
-        padding: '2rem',
+      width: {
+        side: '250px',
+        sideM: '50px',
+        main: '600px',
+        full: '1100px',
+      },
+      maxWidth: {
+        main: '600px',
+      },
+      minWidth: {
+        main: '600px',
       },
     },
   },

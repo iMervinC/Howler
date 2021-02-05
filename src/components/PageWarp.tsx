@@ -7,12 +7,12 @@ interface Layout {
 
 const PageWarp: FC<Layout> = ({ title, children }) => {
   return (
-    <div className="bg-black text-custom-offwhite font-bold contain">
+    <div className="container mx-auto">
       <Head>
         <title>{title}</title>
-        <link rel="icon" href="/logo.svg" />
+        <link rel="icon" href="/pic1.svg" />
       </Head>
-      <main className="mb-32">{children}</main>
+      <main>{children}</main>
     </div>
   )
 }

@@ -1,6 +1,6 @@
 @layer base {
   /* body {
-    @apply bg-black;
+    @apply min-w-window;
   } */
   :root {
     font-family: 'geomanist';
@@ -13,4 +13,19 @@
 
 .contain {
   @apply mx-auto container;
+}
+
+.hover-shadow {
+  @apply hover:bg-custom-hover rounded-full p-2 sm:py-1 sm:px-4;
+}
+
+.nav-link {
+  @apply flex items-center justify-center sm:justify-start hover:text-custom sm:w-2/3;
+}
+
+.howl-btn {
+  @apply bg-custom transition-all transform hover:scale-105 text-white font-bold px-4 py-1 ml-4 rounded-md;
+}
+.howl-btn-disabled {
+  @apply bg-custom-disabled cursor-default text-white font-bold px-4 py-1 ml-4 rounded-md;
 }

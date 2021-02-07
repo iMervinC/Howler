@@ -1,5 +1,3 @@
-const { url } = require('inspector')
-
 module.exports = {
   purge: ['./pages/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],
   darkMode: false, // or 'media' or 'class'
@@ -13,6 +11,8 @@ module.exports = {
       colors: {
         custom: {
           DEFAULT: '#8C32FF',
+          hover: 'rgba(140, 50, 255, 0.90)',
+          disabled: 'rgba(140, 50, 255, 0.5)',
           twitter: '#00D1FF',
         },
       },
@@ -24,9 +24,12 @@ module.exports = {
       },
       maxWidth: {
         main: '600px',
+        side: '250px',
       },
       minWidth: {
-        main: '600px',
+        main: '300px',
+        side: '100px',
+        window: '375px',
       },
     },
   },

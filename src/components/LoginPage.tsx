@@ -2,7 +2,7 @@ import React from 'react'
 
 const LoginPage = () => {
   return (
-    <div className="flex flex-col items-center justify-center h-screen">
+    <div className="flex flex-col items-center justify-center h-screen bg-red-400">
       <img src="/logo.svg" alt="logo" />
       <h2 className="text-custom-twitter text-4xl capitalize mb-8">
         a twitter clone

@@ -8,7 +8,9 @@ const PageWarp: FC<{ title: string }> = ({ title, children }) => {
         <title>{title}</title>
         <link rel="icon" href="/pic1.svg" />
       </Head>
-      {children}
+      <div className="max-w-main w-main border-r-4 border-l-4 border-custom">
+        {children}
+      </div>
     </>
   )
 }

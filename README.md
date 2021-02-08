@@ -17,5 +17,5 @@
   - Navigation
   - Howl in Nav `pending`
   - Textarea
-  - Howl feeds `pending`
-- Profile `pending`
+  - Howl feeds
+- Profile

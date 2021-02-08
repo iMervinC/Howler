@@ -12,7 +12,7 @@ const Nav = () => {
             <a>
               <img
                 className="h-10 hidden sm:block hover-shadow"
-                src="/Logo.svg"
+                src="/logo.svg"
                 alt="logo"
               />
               <img
@@ -24,6 +24,7 @@ const Nav = () => {
           </Link>
         </div>
         <ul className="text-xl font-bold sm:ml-3 flex flex-col gap-4">
+          {/* Home Link */}
           <li>
             <Link href="/home">
               <a
@@ -45,8 +46,9 @@ const Nav = () => {
               </a>
             </Link>
           </li>
+          {/* Profile Link */}
           <li>
-            <Link href="/home">
+            <Link href="/PsychoGoreman">
               <a
                 onClick={() => setNav('profile')}
                 className={`${

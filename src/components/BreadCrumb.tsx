@@ -4,7 +4,7 @@ import { faSearch, faArrowLeft } from '@fortawesome/free-solid-svg-icons'
 
 const BreadCrumb: FC<{ page: 'home' | 'profile' }> = ({ page }) => {
   return (
-    <div className="flex items-center justify-center h-20 bg-custom px-10">
+    <div className="flex items-center justify-center h-20 bg-custom px-10 relative z-50">
       {page === 'profile' && (
         <FontAwesomeIcon
           icon={faArrowLeft}

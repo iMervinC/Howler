@@ -5,10 +5,10 @@ const Nav = () => {
   const [nav, setNav] = useState<'home' | 'profile'>('home')
 
   return (
-    <>
-      <nav className="flex flex-col justify-end h-screen max-w-side sm:w-side  px-4 sm:px-0">
+    <div className="max-w-side sm:w-side relative">
+      <nav className="flex flex-col justify-end h-screen max-w-side md:w-side  px-4 sm:px-0">
         <div className="flex items-center h-20 justify-center sm:justify-start ">
-          <Link href="/">
+          <Link href="/home">
             <a>
               <img
                 className="h-10 hidden sm:block hover-shadow"
@@ -25,7 +25,7 @@ const Nav = () => {
         </div>
         <ul className="text-xl font-bold sm:ml-3 flex flex-col gap-4">
           <li>
-            <Link href="/">
+            <Link href="/home">
               <a
                 onClick={() => setNav('home')}
                 className={`${
@@ -46,12 +46,12 @@ const Nav = () => {
             </Link>
           </li>
           <li>
-            <Link href="/">
+            <Link href="/home">
               <a
                 onClick={() => setNav('profile')}
                 className={`${
                   nav === 'profile' && 'text-custom'
-                } flex items-center justify-center sm:justify-start hover:text-custom hover-shadow sm:w-2/3`}
+                }  hover-shadow nav-link`}
               >
                 <svg
                   className="fill-current"
@@ -68,7 +68,7 @@ const Nav = () => {
         </ul>
         <div className="bg-custom h-14 mt-auto mb-3"></div>
       </nav>
-    </>
+    </div>
   )
 }
 

@@ -78,7 +78,7 @@ const TextHowl = () => {
   return (
     <form className="flex items-center flex-auto" onSubmit={submitHandler}>
       <textarea
-        className="flex-auto border-2 focus:border-custom focus-within:outline-none rounded-md p-1 self-start overflow-auto"
+        className="flex-auto border-2 focus:border-custom focus-within:outline-none rounded-md p-1 self-start overflow-auto mb-3"
         placeholder="What's Howlin?"
         rows={howl.rows}
         value={howl.value}

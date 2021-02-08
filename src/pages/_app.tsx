@@ -24,7 +24,7 @@ export default function App({ Component, pageProps, router }: AppProps) {
       <main className="container mx-auto flex justify-center h-screen">
         <Nav />
         <Component {...pageProps} />
-        <div className="w-side hidden md:block"></div>
+        <div className="w-side hidden lg:block"></div>
       </main>
     </ChakraProvider>
   )

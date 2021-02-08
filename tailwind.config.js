@@ -1,5 +1,8 @@
 module.exports = {
-  purge: ['./pages/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],
+  purge: [
+    './src/pages/**/*.{js,ts,jsx,tsx}',
+    './src/components/**/*.{js,ts,jsx,tsx}',
+  ],
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
@@ -12,6 +15,7 @@ module.exports = {
         custom: {
           DEFAULT: '#8C32FF',
           hover: 'rgba(140, 50, 255, 0.90)',
+          linkHover: 'rgba(140, 50, 255, 0.4)',
           disabled: 'rgba(140, 50, 255, 0.5)',
           twitter: '#00D1FF',
         },

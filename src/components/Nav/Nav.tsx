@@ -1,8 +1,16 @@
-import { useState } from 'react'
+import { useContext, useEffect, FC } from 'react'
 import Link from 'next/link'
+import HowlCtx from '@/context/howl-context'
 
-const Nav = () => {
-  const [nav, setNav] = useState<'home' | 'profile'>('home')
+const Nav = ({ navigation }) => {
+  const {
+    state: { nav },
+    setNavigation,
+  } = useContext(HowlCtx)
+
+  useEffect(() => {
+    setNavigation(navigation === 'user' ? 'profile' : navigation)
+  }, [navigation])
 
   return (
     <div className="max-w-side sm:w-side relative">
@@ -28,7 +36,7 @@ const Nav = () => {
           <li>
             <Link href="/home">
               <a
-                onClick={() => setNav('home')}
+                onClick={() => setNavigation('home')}
                 className={`${
                   nav === 'home' && 'text-custom'
                 } hover-shadow nav-link`}
@@ -50,7 +58,7 @@ const Nav = () => {
           <li>
             <Link href="/PsychoGoreman">
               <a
-                onClick={() => setNav('profile')}
+                onClick={() => setNavigation('profile')}
                 className={`${
                   nav === 'profile' && 'text-custom'
                 }  hover-shadow nav-link`}

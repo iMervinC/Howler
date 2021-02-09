@@ -10,7 +10,7 @@
 
 ### Milestone 2
 
-- [x] Frontend
+- [] Frontend
 - Splash Home
 - Authenticated Home
   - Page Layout
@@ -19,3 +19,4 @@
   - Textarea
   - Howl feeds
 - Profile
+- State Management w/TS

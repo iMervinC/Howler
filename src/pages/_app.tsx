@@ -1,4 +1,5 @@
 import { AppProps } from 'next/app'
+import HowlState from '@/context/HowlState'
 import '@/styles/tailwind.css'
 import '@/styles/directives.css'
 import '@/styles/main.scss'
@@ -18,14 +19,19 @@ const theme = extendTheme({
 })
 
 export default function App({ Component, pageProps, router }: AppProps) {
+  //Get Current Page Location
+  const navigation = router.route.match(/\w+/)[0]
+
   return (
-    <ChakraProvider theme={theme}>
-      {/* <Splash /> */}
-      <main className="container mx-auto flex justify-center h-screen">
-        <Nav />
-        <Component {...pageProps} />
-        <div className="w-side hidden lg:block"></div>
-      </main>
-    </ChakraProvider>
+    <HowlState>
+      <ChakraProvider theme={theme}>
+        {/* <Splash /> */}
+        <main className="container mx-auto flex justify-center h-screen">
+          <Nav navigation={navigation} />
+          <Component {...pageProps} />
+          <div className="w-side hidden lg:block"></div>
+        </main>
+      </ChakraProvider>
+    </HowlState>
   )
 }

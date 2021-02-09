@@ -37,3 +37,7 @@
 .howl-wrapper {
   @apply mt-5 flex flex-col items-center justify-center gap-8 overflow-hidden;
 }
+
+.new-howl {
+  @apply bg-custom text-white sm:px-4 sm:py-1 rounded-full sm:rounded-md text-base flex items-center justify-center sm:w-24 cursor-pointer;
+}

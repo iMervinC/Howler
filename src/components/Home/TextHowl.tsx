@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { FC, useState } from 'react'
 
 interface TxtHowl {
   value: string
@@ -8,7 +8,7 @@ interface TxtHowl {
   maxRows: number
 }
 
-const TextHowl = () => {
+const TextHowl: FC<{ modal?: boolean }> = ({ modal }) => {
   const [howl, setHowl] = useState<TxtHowl>({
     value: '',
     textlimit: 180,
@@ -76,9 +76,12 @@ const TextHowl = () => {
   }
 
   return (
-    <form className="flex items-center flex-auto" onSubmit={submitHandler}>
+    <form
+      className={`flex items-center flex-auto ${modal && 'flex-col'}`}
+      onSubmit={submitHandler}
+    >
       <textarea
-        className="flex-auto border-2 focus:border-custom focus-within:outline-none rounded-md p-1 self-start overflow-auto mb-3"
+        className="flex-auto border-2 focus:border-custom focus-within:outline-none rounded-md p-1 self-start overflow-auto mb-3 w-full"
         placeholder="What's Howlin?"
         rows={howl.rows}
         value={howl.value}
@@ -86,7 +89,9 @@ const TextHowl = () => {
       />
       <button
         disabled={textLimit}
-        className={`self-start flex justify-between items-center duration-300 transition-colors ${
+        className={` flex justify-between items-center duration-300 transition-colors ${
+          modal ? 'self-end' : 'self-start'
+        } ${
           howl.value.length === 0
             ? 'howl-btn-disabled'
             : !textLimit

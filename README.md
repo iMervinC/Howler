@@ -15,7 +15,8 @@
 - Authenticated Home
   - Page Layout
   - Navigation
-  - Howl in Nav `pending`
+  - Howl in Nav
+  - New Howl Modal
   - Textarea
   - Howl feeds
 - Profile

@@ -24,7 +24,6 @@ module.exports = {
         side: '250px',
         sideM: '50px',
         main: '600px',
-        full: '1100px',
       },
       maxWidth: {
         main: '600px',

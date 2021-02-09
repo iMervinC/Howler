@@ -1,6 +1,8 @@
-import { useContext, useEffect, FC } from 'react'
+import { useContext, useEffect } from 'react'
 import Link from 'next/link'
 import HowlCtx from '@/context/howl-context'
+import UserNav from './UserNav'
+import NewHowl from './NewHowl'
 
 const Nav = ({ navigation }) => {
   const {
@@ -14,7 +16,8 @@ const Nav = ({ navigation }) => {
 
   return (
     <div className="max-w-side sm:w-side relative">
-      <nav className="flex flex-col justify-end h-screen max-w-side md:w-side  px-4 sm:px-0">
+      <nav className="flex flex-col justify-end h-screen px-0">
+        {/* Logo */}
         <div className="flex items-center h-20 justify-center sm:justify-start ">
           <Link href="/home">
             <a>
@@ -31,6 +34,7 @@ const Nav = ({ navigation }) => {
             </a>
           </Link>
         </div>
+        {/* Navigations */}
         <ul className="text-xl font-bold sm:ml-3 flex flex-col gap-4">
           {/* Home Link */}
           <li>
@@ -75,8 +79,12 @@ const Nav = ({ navigation }) => {
               </a>
             </Link>
           </li>
+          <li>
+            <NewHowl />
+          </li>
         </ul>
-        <div className="bg-custom h-14 mt-auto mb-3"></div>
+        {/* User Info */}
+        <UserNav />
       </nav>
     </div>
   )

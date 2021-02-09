@@ -12,7 +12,7 @@ import Splash from '@/components/Nav/Splash'
 
 export default function App({ Component, pageProps, router }: AppProps) {
   //Get Current Page Location
-  const navigation = router.route.match(/\w+/)[0]
+  const navigation = router.route.match(/\w+/)
 
   return (
     <HowlState>

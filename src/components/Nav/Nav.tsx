@@ -11,7 +11,8 @@ const Nav = ({ navigation }) => {
   } = useContext(HowlCtx)
 
   useEffect(() => {
-    navigation && setNavigation(navigation === 'user' ? 'profile' : navigation)
+    navigation &&
+      setNavigation(navigation[0] === 'user' ? 'profile' : navigation[0])
   }, [navigation])
 
   return (

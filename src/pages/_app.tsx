@@ -4,11 +4,11 @@ import '@/styles/tailwind.css'
 import '@/styles/directives.css'
 import '@/styles/main.scss'
 import { ChakraProvider, extendTheme } from '@chakra-ui/react'
+import Nav from '@/components/Nav/Nav'
+import Splash from '@/components/Nav/Splash'
 
 // import { motion, AnimatePresence } from 'framer-motion'
 // import { pageAnim } from '@/animations/frame'
-import Nav from '@/components/Nav/Nav'
-import Splash from '@/components/Nav/Splash'
 
 export default function App({ Component, pageProps, router }: AppProps) {
   //Get Current Page Location

@@ -1,4 +1,4 @@
-import React, { useReducer } from 'react'
+import React, { FC, useReducer } from 'react'
 import HowlCtx from './howl-context'
 import howlReducer from './howlReducer'
 import { InitialHowlState, HowlReducer, howlNav } from '@/types/Howl.model'
@@ -7,7 +7,7 @@ const initialState: InitialHowlState = {
   nav: 'home',
 }
 
-const HowlState = ({ children }) => {
+const HowlState: FC = ({ children }) => {
   const [state, dispatch] = useReducer<HowlReducer>(howlReducer, initialState)
 
   //ACTIONS

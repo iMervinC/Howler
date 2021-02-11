@@ -1,10 +1,10 @@
-import { useContext, useEffect } from 'react'
+import { FC, useContext, useEffect } from 'react'
 import Link from 'next/link'
 import HowlCtx from '@/context/howl-context'
 import UserNav from './UserNav'
 import NewHowl from './NewHowl'
 
-const Nav = ({ navigation }) => {
+const Nav: FC<any> = ({ navigation }) => {
   const {
     state: { nav },
     setNavigation,

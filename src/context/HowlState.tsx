@@ -3,6 +3,7 @@ import HowlCtx from './howl-context'
 import howlReducer from './howlReducer'
 import { InitialHowlState, HowlReducer, howlNav } from '@/types/Howl.model'
 
+//INITIAL STATE
 const initialState: InitialHowlState = {
   nav: 'home',
 }

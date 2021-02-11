@@ -9,8 +9,13 @@ import {
   Portal,
   PopoverBody,
 } from '@chakra-ui/react'
+import { signOut } from 'next-auth/client'
 
 const UserNav = () => {
+  const logOutHandler = () => {
+    signOut()
+  }
+
   return (
     <Popover>
       <PopoverTrigger>
@@ -41,7 +46,12 @@ const UserNav = () => {
             </div>
           </PopoverHeader>
           <PopoverBody>
-            <span>Log out User</span>
+            <div
+              onClick={logOutHandler}
+              className="cursor-pointer hover:text-blue-500 hover:bg-blue-200"
+            >
+              Log out User
+            </div>
           </PopoverBody>
         </PopoverContent>
       </Portal>

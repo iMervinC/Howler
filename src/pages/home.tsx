@@ -1,10 +1,19 @@
-import { FC } from 'react'
-import PageWarp from '@/components/PageWarp'
+import { FC, useEffect } from 'react'
+import { useRouter } from 'next/router'
+import { useSession } from 'next-auth/client'
+import PageWarp from '@/components/PageWrap'
 import BreadCrumb from '@/components/BreadCrumb/BreadCrumb'
 import HowlTextField from '@/components/Home/HowlTextField'
 import Howl from '@/components/Howl'
 
 const home: FC = () => {
+  const [session] = useSession()
+  const route = useRouter()
+
+  useEffect(() => {
+    !session && route.push('/')
+  }, [session])
+
   return (
     <PageWarp title={'Home'}>
       <BreadCrumb page="home" />

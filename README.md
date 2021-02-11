@@ -21,3 +21,10 @@
   - Howl feeds
 - Profile
 - State Management w/TS
+- TypeScript Strict Mode
+
+### Milestone 3
+
+- Implement Next-Auth.JS
+- Github Login
+- Google Login `pending`

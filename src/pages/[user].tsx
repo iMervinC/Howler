@@ -1,12 +1,19 @@
-import React from 'react'
+import { useEffect } from 'react'
 import { useRouter } from 'next/router'
-import PageWarp from '@/components/PageWarp'
+import { useSession } from 'next-auth/client'
+import PageWarp from '@/components/PageWrap'
 import BreadCrumb from '@/components/BreadCrumb/BreadCrumb'
 import Howl from '@/components/Howl'
 
 const User = () => {
-  const router = useRouter()
-  const { user } = router.query
+  const route = useRouter()
+  const [session] = useSession()
+  const { user } = route.query
+
+  useEffect(() => {
+    !session && route.push('/')
+  }, [session])
+
   return (
     <PageWarp title="Profile">
       <BreadCrumb page="profile" />

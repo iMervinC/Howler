@@ -3,14 +3,19 @@ import { useRouter } from 'next/router'
 import PageWarp from '@/components/PageWrap'
 import LoginPage from '@/components/LoginPage'
 import { useSession } from 'next-auth/client'
+import Loader from '@/components/Loader'
 
 const Home: FC = () => {
-  const [seassion] = useSession()
+  const [session, loading] = useSession()
   const route = useRouter()
 
   useEffect(() => {
-    seassion && route.push('/home')
-  }, [seassion])
+    session && route.push('/home')
+  }, [session])
+
+  if (loading || session) {
+    return <Loader />
+  }
 
   return (
     <PageWarp title={'Welcome to Howler'} splash>

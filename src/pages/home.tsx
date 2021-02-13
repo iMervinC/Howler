@@ -7,12 +7,16 @@ import HowlTextField from '@/components/Home/HowlTextField'
 import Howl from '@/components/Howl'
 
 const home: FC = () => {
-  const [session] = useSession()
+  const [session, loading] = useSession()
   const route = useRouter()
 
   useEffect(() => {
     !session && route.push('/')
+    console.log(session)
   }, [session])
+
+  //If no session display nothing
+  if (!session) return null
 
   return (
     <PageWarp title={'Home'}>

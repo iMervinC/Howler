@@ -9,11 +9,20 @@ import {
   Portal,
   PopoverBody,
 } from '@chakra-ui/react'
-import { signOut } from 'next-auth/client'
+import { signOut, useSession } from 'next-auth/client'
 
 const UserNav = () => {
+  const [session] = useSession()
+
   const logOutHandler = () => {
     signOut()
+  }
+
+  const shortUser = (userName: string) => {
+    const name = userName.split('')
+    if (name.length > 8) {
+      return name.slice(0, 16).join('').padEnd(19, '.')
+    }
   }
 
   return (
@@ -21,13 +30,15 @@ const UserNav = () => {
       <PopoverTrigger>
         <div className="flex items-center justify-start gap-2 h-14 mt-auto mb-3 sm:mx-2 sm:px-5  cursor-pointer hover-shadow">
           <img
-            src="/pic3.svg"
+            src={`${session?.user.image}`}
             alt="User Picture"
             className="rounded-full w-9 h-auto"
           />
           <div className="sm:flex flex-col hidden">
-            <span className="font-semibold">Psycho Goreman</span>
-            <span className="text-sm">@PychoGoreman</span>
+            <span className="font-semibold">
+              {shortUser(session?.user.name!)}
+            </span>
+            <span className="text-sm">@userHandle</span>
           </div>
           <FontAwesomeIcon
             icon={faEllipsisH}

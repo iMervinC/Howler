@@ -14,6 +14,9 @@ const User = () => {
     !session && route.push('/')
   }, [session])
 
+  //If no session display nothing
+  if (!session) return null
+
   return (
     <PageWarp title="Profile">
       <BreadCrumb page="profile" />
@@ -21,14 +24,16 @@ const User = () => {
         <div className="h-32 bg-black transform translate-y-20">
           <div className="flex items-center gap-4 transform translate-y-1/2 ml-5">
             <img
-              className=" h-32 rounded-full w-auto border-4 border-white border-solid"
-              src="./pic3.svg"
+              className="bg-custom h-32 rounded-full w-auto border-4 border-white border-solid"
+              src={`${session.user.image}`}
               alt="profilePic"
             />
             <div className="flex flex-col gap-2">
-              <span className="font-semibold text-white text-2xl">{user}</span>
+              <span className="font-semibold text-white text-2xl">
+                {session.user.name}
+              </span>
               <span className="font-semibold text-gray-600 text-lg">
-                Joined at Febuary 21
+                {user}
               </span>
             </div>
           </div>

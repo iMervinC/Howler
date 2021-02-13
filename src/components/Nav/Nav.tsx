@@ -18,7 +18,7 @@ const Nav: FC<any> = ({ navigation }) => {
   }, [navigation])
 
   return (
-    <div className="max-w-side sm:w-side relative">
+    <div className="sm:w-side relative">
       {session && (
         <nav className="flex flex-col justify-end h-screen px-0">
           {/* Logo */}
@@ -64,7 +64,7 @@ const Nav: FC<any> = ({ navigation }) => {
             </li>
             {/* Profile Link */}
             <li>
-              <Link href="/PsychoGoreman">
+              <Link href={`/${'pychogoreman'}`}>
                 <a
                   onClick={() => setNavigation('profile')}
                   className={`${

@@ -19,9 +19,11 @@ const UserNav = () => {
   }
 
   const shortUser = (userName: string) => {
-    const name = userName.split('')
-    if (name.length > 8) {
+    if (userName.length > 16) {
+      const name = userName.split('')
       return name.slice(0, 16).join('').padEnd(19, '.')
+    } else {
+      return userName
     }
   }
 
@@ -38,7 +40,10 @@ const UserNav = () => {
             <span className="font-semibold">
               {shortUser(session?.user.name!)}
             </span>
-            <span className="text-sm">@userHandle</span>
+            <span className="text-sm">{`@${
+              // @ts-ignore
+              session?.user.userTag
+            }`}</span>
           </div>
           <FontAwesomeIcon
             icon={faEllipsisH}
@@ -52,8 +57,11 @@ const UserNav = () => {
           <PopoverArrow />
           <PopoverHeader>
             <div className="flex flex-col">
-              <span className="font-semibold">Psycho Goreman</span>
-              <span className="text-sm">@PychoGoreman</span>
+              <span className="font-semibold">{session?.user.name}</span>
+              <span className="text-sm">{`@${
+                // @ts-ignore
+                session?.user.userTag
+              }`}</span>
             </div>
           </PopoverHeader>
           <PopoverBody>

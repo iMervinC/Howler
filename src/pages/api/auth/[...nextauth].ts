@@ -1,10 +1,11 @@
-import NextAuth from 'next-auth'
+import NextAuth, { InitOptions } from 'next-auth'
 import Providers from 'next-auth/providers'
-import Adapters from 'next-auth/adapters'
-import Models from '@/model'
 import { NextApiRequest, NextApiResponse } from 'next/types'
+import User from '@/model/userModel'
+import dbConnect from '@/utils/dbConnect'
+import { customUser } from '@/types/Model.model'
 
-const options = {
+const options: InitOptions = {
   providers: [
     Providers.GitHub({
       clientId: process.env.GITHUB_ID!,
@@ -12,14 +13,43 @@ const options = {
     }),
   ],
   database: process.env.MONGODB_URI,
-  adapter: Adapters.TypeORM.Adapter(
-    { type: 'mongodb', url: process.env.MONGODB_URI },
-    {
-      models: {
-        User: Models.User,
-      },
-    }
-  ),
+  session: {
+    jwt: true,
+  },
+  callbacks: {
+    async session(session, user: customUser) {
+      const sessionUser: customUser = {
+        ...session.user,
+        userTag: user.userTag,
+        id: user.id,
+      }
+      return Promise.resolve({ ...session, user: sessionUser })
+    },
+    async jwt(token, user: customUser, account, profile, isNewUser) {
+      let response = token
+
+      if (user?.id) {
+        //Connect to DataBase
+        dbConnect()
+        //Get User
+        let dbUser = await User.findById(user.id)
+
+        if (!dbUser.userTag && profile.login) {
+          dbUser.userTag = profile.login
+          await dbUser.save()
+          console.log('No tag')
+        }
+
+        response = {
+          ...token,
+          id: user.id,
+          userTag: dbUser.userTag,
+        }
+      }
+
+      return Promise.resolve(response)
+    },
+  },
 }
 
 export default (req: NextApiRequest, res: NextApiResponse) =>

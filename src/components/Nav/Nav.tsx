@@ -64,7 +64,12 @@ const Nav: FC<any> = ({ navigation }) => {
             </li>
             {/* Profile Link */}
             <li>
-              <Link href={`/${'pychogoreman'}`}>
+              <Link
+                href={`/${
+                  // @ts-ignore
+                  session.user.userTag
+                }`}
+              >
                 <a
                   onClick={() => setNavigation('profile')}
                   className={`${

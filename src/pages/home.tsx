@@ -1,18 +1,17 @@
 import { FC, useEffect } from 'react'
 import { useRouter } from 'next/router'
-import { useSession } from 'next-auth/client'
+import { useSessionUser } from '@/hooks/useSessionUser'
 import PageWarp from '@/components/PageWrap'
 import BreadCrumb from '@/components/BreadCrumb/BreadCrumb'
 import HowlTextField from '@/components/Home/HowlTextField'
 import Howl from '@/components/Howl'
 
 const home: FC = () => {
-  const [session, loading] = useSession()
+  const [sessionUser, session, loading] = useSessionUser()
   const route = useRouter()
 
   useEffect(() => {
     !session && route.push('/')
-    console.log(session)
   }, [session])
 
   //If no session display nothing

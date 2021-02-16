@@ -1,12 +1,14 @@
 import { FC, useContext, useEffect } from 'react'
 import { useSession } from 'next-auth/client'
+import { useSessionUser } from '@/hooks/useSessionUser'
 import Link from 'next/link'
 import HowlCtx from '@/context/howl-context'
 import UserNav from './UserNav'
 import NewHowl from './NewHowl'
 
 const Nav: FC<any> = ({ navigation }) => {
-  const [session] = useSession()
+  const [sessionUser, session, loading] = useSessionUser()
+
   const {
     state: { nav },
     setNavigation,
@@ -64,12 +66,7 @@ const Nav: FC<any> = ({ navigation }) => {
             </li>
             {/* Profile Link */}
             <li>
-              <Link
-                href={`/${
-                  // @ts-ignore
-                  session.user.userTag
-                }`}
-              >
+              <Link href={`/${sessionUser?.userTag}`}>
                 <a
                   onClick={() => setNavigation('profile')}
                   className={`${

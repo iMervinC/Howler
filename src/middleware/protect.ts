@@ -8,7 +8,7 @@ export const protect = async (
 ) => {
   const session = await getSession({ req })
   if (session) {
-    console.log(session)
+    console.log('protect', session)
     next()
   } else {
     res.status(401)

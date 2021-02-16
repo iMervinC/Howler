@@ -1,13 +1,13 @@
 import { useEffect } from 'react'
 import { useRouter } from 'next/router'
-import { useSession } from 'next-auth/client'
+import { useSessionUser } from '@/hooks/useSessionUser'
 import PageWarp from '@/components/PageWrap'
 import BreadCrumb from '@/components/BreadCrumb/BreadCrumb'
 import Howl from '@/components/Howl'
 
 const User = () => {
   const route = useRouter()
-  const [session] = useSession()
+  const [sessionUser, session, loading] = useSessionUser()
   const { user } = route.query
 
   useEffect(() => {
@@ -25,15 +25,15 @@ const User = () => {
           <div className="flex items-center gap-4 transform translate-y-1/2 ml-5">
             <img
               className="bg-custom h-32 rounded-full w-auto border-4 border-white border-solid"
-              src={`${session.user.image}`}
+              src={`${sessionUser?.image}`}
               alt="profilePic"
             />
             <div className="flex flex-col gap-2">
               <span className="font-semibold text-white text-2xl">
-                {session.user.name}
+                {sessionUser?.name}
               </span>
               <span className="font-semibold text-gray-600 text-lg">
-                {user}
+                @{sessionUser?.userTag}
               </span>
             </div>
           </div>

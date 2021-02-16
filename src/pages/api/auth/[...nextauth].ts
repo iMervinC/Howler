@@ -25,7 +25,7 @@ const options: InitOptions = {
       }
       return Promise.resolve({ ...session, user: sessionUser })
     },
-    async jwt(token, user: customUser, account, profile, isNewUser) {
+    async jwt(token, user: customUser, profile) {
       let response = token
 
       if (user?.id) {

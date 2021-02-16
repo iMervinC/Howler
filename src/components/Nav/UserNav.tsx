@@ -9,10 +9,11 @@ import {
   Portal,
   PopoverBody,
 } from '@chakra-ui/react'
-import { signOut, useSession } from 'next-auth/client'
+import { signOut } from 'next-auth/client'
+import { useSessionUser } from '@/hooks/useSessionUser'
 
 const UserNav = () => {
-  const [session] = useSession()
+  const [sessionUser, session] = useSessionUser()
 
   const logOutHandler = () => {
     signOut()
@@ -32,18 +33,15 @@ const UserNav = () => {
       <PopoverTrigger>
         <div className="flex items-center justify-start gap-2 h-14 mt-auto mb-3 sm:mx-2 sm:px-5  cursor-pointer hover-shadow">
           <img
-            src={`${session?.user.image}`}
+            src={`${sessionUser?.image}`}
             alt="User Picture"
             className="rounded-full w-9 h-auto"
           />
           <div className="sm:flex flex-col hidden">
             <span className="font-semibold">
-              {shortUser(session?.user.name!)}
+              {shortUser(sessionUser?.name!)}
             </span>
-            <span className="text-sm">{`@${
-              // @ts-ignore
-              session?.user.userTag
-            }`}</span>
+            <span className="text-sm">{`@${sessionUser?.userTag}`}</span>
           </div>
           <FontAwesomeIcon
             icon={faEllipsisH}
@@ -57,11 +55,8 @@ const UserNav = () => {
           <PopoverArrow />
           <PopoverHeader>
             <div className="flex flex-col">
-              <span className="font-semibold">{session?.user.name}</span>
-              <span className="text-sm">{`@${
-                // @ts-ignore
-                session?.user.userTag
-              }`}</span>
+              <span className="font-semibold">{sessionUser?.name}</span>
+              <span className="text-sm">{`@${sessionUser?.userTag}`}</span>
             </div>
           </PopoverHeader>
           <PopoverBody>

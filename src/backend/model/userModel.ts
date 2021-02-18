@@ -9,6 +9,7 @@ const schema = new Schema(
       required: true,
     },
     email: {
+      unique: true,
       type: String,
     },
     image: {

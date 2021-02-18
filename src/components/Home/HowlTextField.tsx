@@ -1,5 +1,5 @@
 import React from 'react'
-import TextHowl from '@/components/Home/TextHowl'
+import TextHowl from '@/components/UI/TextHowl'
 
 const Howl = () => {
   return (

@@ -2,7 +2,7 @@ import { FC, useEffect } from 'react'
 import { useRouter } from 'next/router'
 import { useSessionUser } from '@/hooks/useSessionUser'
 import PageWarp from '@/components/PageWrap'
-import BreadCrumb from '@/components/BreadCrumb/BreadCrumb'
+import BreadCrumb from '@/components/UI/BreadCrumb'
 import HowlTextField from '@/components/Home/HowlTextField'
 import Howl from '@/components/Howl'
 

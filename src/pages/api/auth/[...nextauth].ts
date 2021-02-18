@@ -1,7 +1,7 @@
 import NextAuth, { InitOptions } from 'next-auth'
 import Providers from 'next-auth/providers'
 import { NextApiRequest, NextApiResponse } from 'next/types'
-import User from '@/model/userModel'
+import User from '@/backend/model/userModel'
 import dbConnect from '@/utils/dbConnect'
 import { customUser } from '@/types/Model.model'
 
@@ -33,7 +33,7 @@ const options: InitOptions = {
         dbConnect()
         //Get User
         let dbUser = await User.findById(user.id)
-
+        //Add UserTag if it doesn't already exist
         if (!dbUser.userTag && profile.login) {
           dbUser.userTag = profile.login
           await dbUser.save()

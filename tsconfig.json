@@ -4,6 +4,7 @@
     "paths": {
       "@/*": ["*"],
       "@/api/*": ["/pages/api/*"],
+    
     },
     "target": "es5",
     "lib": [

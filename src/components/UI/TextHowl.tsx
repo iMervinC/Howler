@@ -1,14 +1,7 @@
 import React, { FC, useState } from 'react'
+import { HowlUI, TxtHowl } from '@/types/UI.model'
 
-interface TxtHowl {
-  value: string
-  textlimit: number
-  rows: number
-  minRows: number
-  maxRows: number
-}
-
-const TextHowl: FC<{ modal?: boolean }> = ({ modal }) => {
+const TextHowl: FC<HowlUI> = ({ modal, onClose }) => {
   const [howl, setHowl] = useState<TxtHowl>({
     value: '',
     textlimit: 180,
@@ -22,7 +15,8 @@ const TextHowl: FC<{ modal?: boolean }> = ({ modal }) => {
     strokeDasharray: '',
   })
 
-  const changeHandler = (e) => {
+  // On Change Input Handler
+  const changeHandler = (e: any) => {
     const textareaLineHeight = 24
     const { minRows, maxRows } = howl
 
@@ -49,10 +43,13 @@ const TextHowl: FC<{ modal?: boolean }> = ({ modal }) => {
     styleRing(howl.textlimit, howl.value.length)
   }
 
-  const submitHandler = (e) => {
+  // Submit Handler
+  const submitHandler = (e: any) => {
     e.preventDefault()
     if (howl.value || howl.value !== '') {
       console.log(howl.value)
+      setHowl({ ...howl, value: '' })
+      modal && onClose!()
     }
   }
 

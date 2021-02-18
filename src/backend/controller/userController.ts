@@ -1,5 +1,5 @@
 import { NextApiRequest, NextApiResponse } from 'next/types'
-import User from '@/model/userModel'
+import User from '@/backend/model/userModel'
 import { getSession } from 'next-auth/client'
 import { customSession } from '@/types/Model.model'
 

@@ -66,7 +66,7 @@ const Nav: FC<any> = ({ navigation }) => {
             </li>
             {/* Profile Link */}
             <li>
-              <Link href={`/${sessionUser?.userTag}`}>
+              <Link href={`/profile`}>
                 <a
                   onClick={() => setNavigation('profile')}
                   className={`${

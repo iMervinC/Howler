@@ -1,4 +1,4 @@
-import HowlModal from '@/components/HowlModal'
+import HowlModal from '@/components/UI/HowlModal'
 import { useDisclosure } from '@chakra-ui/react'
 
 const NewHowl = () => {

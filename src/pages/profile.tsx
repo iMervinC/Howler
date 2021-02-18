@@ -8,7 +8,6 @@ import Howl from '@/components/Howl'
 const User = () => {
   const route = useRouter()
   const [sessionUser, session, loading] = useSessionUser()
-  const { user } = route.query
 
   useEffect(() => {
     !session && route.push('/')

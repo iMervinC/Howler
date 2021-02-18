@@ -6,9 +6,9 @@ export interface InitialHowlState {
 export type howlNav = 'home' | 'profile'
 
 //Howl Actions
-export interface HowlActions {
+export type HowlActions = {
   type: 'NAVIGATION'
-  payload?: any
+  payload: howlNav
 }
 
 //Howl Reducer

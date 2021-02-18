@@ -41,3 +41,7 @@
 .new-howl {
   @apply bg-custom text-white sm:px-4 sm:py-1 rounded-full sm:rounded-md text-base flex items-center justify-center sm:w-24 cursor-pointer;
 }
+
+.page-wraper {
+  @apply max-w-main w-main border-r-4 border-l-4 border-custom;
+}

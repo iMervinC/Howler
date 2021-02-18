@@ -1,4 +1,4 @@
-import HowlModal from '@/components/HowlModal'
+import HowlModal from '@/components/UI/HowlModal'
 import { useDisclosure } from '@chakra-ui/react'
 
 const NewHowl = () => {
@@ -6,7 +6,7 @@ const NewHowl = () => {
 
   return (
     <>
-      <div className="new-howl" onClick={onOpen}>
+      <div className="new-howl sm:ml-6" onClick={onOpen}>
         <span className="hidden sm:block">Howl</span>
         <svg
           width="36"

@@ -1,6 +1,7 @@
 import React, { FC, useState } from 'react'
-import { HowlUI, TxtHowl } from '@/types/UI.model'
+import { useCreateHowl } from '@/hooks/queryHooks'
 import axios from 'axios'
+import { HowlUI, TxtHowl } from '@/types/UI.model'
 
 const TextHowl: FC<HowlUI> = ({ modal, onClose }) => {
   const [howl, setHowl] = useState<TxtHowl>({
@@ -15,6 +16,8 @@ const TextHowl: FC<HowlUI> = ({ modal, onClose }) => {
     stroke: '',
     strokeDasharray: '',
   })
+
+  const mutation = useCreateHowl()
 
   // On Change Input Handler
   const changeHandler = (e: any) => {
@@ -48,15 +51,7 @@ const TextHowl: FC<HowlUI> = ({ modal, onClose }) => {
   const submitHandler = async (e: any) => {
     e.preventDefault()
     if (howl.value || howl.value !== '') {
-      try {
-        const { data } = await axios.post(
-          '/api/howl',
-          { howl: howl.value },
-          {
-            headers: { 'Content-Type': 'application/json' },
-          }
-        )
-      } catch (error) {}
+      mutation.mutate({ howl: howl.value })
       setHowl({ ...howl, value: '' })
       modal && onClose!()
     }

@@ -1,17 +1,30 @@
-import { useQuery } from 'react-query'
+import {
+  useQuery,
+  UseQueryOptions,
+  useMutation,
+  useQueryClient,
+} from 'react-query'
 import axios from 'axios'
+import { HowlT } from '@/types/Howl.model'
 
-const fetcher = async (_url: string) => {
+export const fetcher = async (_url: string) => {
   const { data } = await axios.get(_url)
   return data
 }
 
-export const useGetHowls = () => {
-  return useQuery('howls', () => fetcher('/api/howl'))
+export const useGetHowls = (options?: UseQueryOptions<HowlT[]>) => {
+  return useQuery('howls', () => fetcher('/api/howl'), options)
 }
 
-export const useGetUserHowls = () => {
-  return useQuery('howls', () => fetcher('/api/howl/:id'), {
-    refetchInterval: 5000,
-  })
+export const useCreateHowl = () => {
+  const queryClient = useQueryClient()
+
+  return useMutation(
+    (newHowl: { howl: string }) => axios.post('/api/howl', newHowl),
+    {
+      onSuccess: () => {
+        queryClient.invalidateQueries('howls')
+      },
+    }
+  )
 }

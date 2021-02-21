@@ -1,7 +1,7 @@
 import { AppProps } from 'next/app'
 import { Provider } from 'next-auth/client'
-import HowlState from '@/context/HowlState'
 import { ChakraProvider } from '@chakra-ui/react'
+import HowlState from '@/context/HowlState'
 import '@/styles/tailwind.css'
 import '@/styles/directives.css'
 import '@/styles/main.css'

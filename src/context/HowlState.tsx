@@ -1,5 +1,6 @@
 import React, { FC, useReducer } from 'react'
 import { QueryClientProvider, QueryClient } from 'react-query'
+import { ReactQueryDevtools } from 'react-query/devtools'
 import HowlCtx from './howl-context'
 import howlReducer from './howlReducer'
 import { InitialHowlState, HowlReducer, howlNav } from '@/types/Howl.model'
@@ -25,6 +26,7 @@ const HowlState: FC = ({ children }) => {
       <HowlCtx.Provider value={{ state, setNavigation }}>
         {children}
       </HowlCtx.Provider>
+      <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>
   )
 }

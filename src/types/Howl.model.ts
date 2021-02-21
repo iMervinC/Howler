@@ -19,3 +19,15 @@ export interface HowlContext {
   state: InitialHowlState
   setNavigation: (nav: howlNav) => void
 }
+
+//MISC TYPES
+export interface HowlT {
+  _id?: string
+  howl: string
+  user: {
+    name: string
+    image: string
+    userTag: string
+  }
+  createdAt?: Date
+}

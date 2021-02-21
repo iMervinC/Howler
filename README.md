@@ -28,5 +28,9 @@
 - Implement Next-Auth.JS
 - Github Login
 - Google Login `pending`
-- Custom Model for Users `pending`
+- Custom Model for Users
 - API routes
+
+### Milestone 4
+
+- React Query `pending`

@@ -3,7 +3,7 @@ import { useRouter } from 'next/router'
 import { useSessionUser } from '@/hooks/useSessionUser'
 import PageWarp from '@/components/PageWrap'
 import BreadCrumb from '@/components/UI/BreadCrumb'
-import Howl from '@/components/Howl'
+import HowlLoader from '@/components/HowlLoader'
 
 const User = () => {
   const route = useRouter()
@@ -38,12 +38,10 @@ const User = () => {
           </div>
         </div>
         <div className="howl-wrapper transform translate-y-32">
-          <Howl />
-          <Howl />
-          <Howl />
-          <Howl />
-          <Howl />
-          <Howl />
+          <HowlLoader />
+          <HowlLoader />
+          <HowlLoader />
+          <HowlLoader />
         </div>
       </div>
     </PageWarp>

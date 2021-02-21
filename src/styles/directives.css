@@ -35,7 +35,7 @@
 }
 
 .howl-wrapper {
-  @apply mt-5 flex flex-col items-center justify-center gap-8 overflow-hidden;
+  @apply my-5 flex flex-col items-center justify-center gap-8 overflow-hidden;
 }
 
 .new-howl {

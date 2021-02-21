@@ -1,10 +1,11 @@
 import React, { FC, useState } from 'react'
 import { HowlUI, TxtHowl } from '@/types/UI.model'
+import axios from 'axios'
 
 const TextHowl: FC<HowlUI> = ({ modal, onClose }) => {
   const [howl, setHowl] = useState<TxtHowl>({
     value: '',
-    textlimit: 180,
+    textlimit: 280,
     rows: 2,
     minRows: 2,
     maxRows: 5,
@@ -44,10 +45,18 @@ const TextHowl: FC<HowlUI> = ({ modal, onClose }) => {
   }
 
   // Submit Handler
-  const submitHandler = (e: any) => {
+  const submitHandler = async (e: any) => {
     e.preventDefault()
     if (howl.value || howl.value !== '') {
-      console.log(howl.value)
+      try {
+        const { data } = await axios.post(
+          '/api/howl',
+          { howl: howl.value },
+          {
+            headers: { 'Content-Type': 'application/json' },
+          }
+        )
+      } catch (error) {}
       setHowl({ ...howl, value: '' })
       modal && onClose!()
     }

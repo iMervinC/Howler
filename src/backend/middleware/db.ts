@@ -7,13 +7,10 @@ const dbMiddleware = async (
   next: any
 ) => {
   try {
-    // @ts-ignore
-    if (!global.mongoose) {
-      // @ts-ignore
-      global.mongoose = dbConnect()
-    }
+    await dbConnect()
   } catch (err) {
     console.error(err)
+    throw new Error('Failed to connect to DataBase')
   }
   return next()
 }

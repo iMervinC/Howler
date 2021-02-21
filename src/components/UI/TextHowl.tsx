@@ -1,10 +1,12 @@
 import React, { FC, useState } from 'react'
+import { useCreateHowl } from '@/hooks/queryHooks'
+import axios from 'axios'
 import { HowlUI, TxtHowl } from '@/types/UI.model'
 
 const TextHowl: FC<HowlUI> = ({ modal, onClose }) => {
   const [howl, setHowl] = useState<TxtHowl>({
     value: '',
-    textlimit: 180,
+    textlimit: 280,
     rows: 2,
     minRows: 2,
     maxRows: 5,
@@ -14,6 +16,8 @@ const TextHowl: FC<HowlUI> = ({ modal, onClose }) => {
     stroke: '',
     strokeDasharray: '',
   })
+
+  const mutation = useCreateHowl()
 
   // On Change Input Handler
   const changeHandler = (e: any) => {
@@ -44,10 +48,10 @@ const TextHowl: FC<HowlUI> = ({ modal, onClose }) => {
   }
 
   // Submit Handler
-  const submitHandler = (e: any) => {
+  const submitHandler = async (e: any) => {
     e.preventDefault()
     if (howl.value || howl.value !== '') {
-      console.log(howl.value)
+      mutation.mutate({ howl: howl.value })
       setHowl({ ...howl, value: '' })
       modal && onClose!()
     }

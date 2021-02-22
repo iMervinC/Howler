@@ -18,13 +18,34 @@ export const useGetHowls = (options?: UseQueryOptions<HowlT[]>) => {
 
 export const useCreateHowl = () => {
   const queryClient = useQueryClient()
-
   return useMutation(
     (newHowl: { howl: string }) => axios.post('/api/howl', newHowl),
     {
-      onSuccess: () => {
+      onSuccess: (data) => {
+        queryClient.setQueryData<HowlT[]>('howls', (old) => [
+          data.data,
+          ...old!,
+        ])
+        // console.log(data)
         queryClient.invalidateQueries('howls')
       },
     }
   )
+}
+
+export const useDeleteHowl = () => {
+  const queryClient = useQueryClient()
+  return useMutation((howlId: string) => axios.delete(`/api/howl/${howlId}`), {
+    onSuccess: (_, variable) => {
+      queryClient.setQueryData<HowlT[]>('howls', (old) =>
+        old!.filter((howl) => howl._id !== variable)
+      )
+      queryClient.invalidateQueries('howls')
+    },
+  })
+}
+
+export const useUpdateHowl = () => {
+  const queryClient = useQueryClient()
+  return useMutation((howlId: string) => axios.patch(`/api/howl/${howlId}`))
 }

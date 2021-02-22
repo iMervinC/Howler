@@ -33,11 +33,10 @@ const home: FC<{ data: HowlT[] }> = (props) => {
       <div className="h-full transform -translate-y-20 overflow-auto scroll">
         <HowlTextField />
         <div className="howl-wrapper">
-          <HowlLoader />
-          {status === 'loading' && <h2>Loading...</h2>}
           {data?.map((howl) => (
             <Howl
               key={howl._id}
+              _id={howl._id}
               howl={howl.howl}
               user={howl.user}
               createdAt={howl.createdAt}

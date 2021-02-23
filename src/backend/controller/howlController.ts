@@ -86,3 +86,10 @@ export const deleteHowl = async (req: NextApiRequest, res: NextApiResponse) => {
 //@desc   Update Howl by ID
 //@route  PATCH /api/howl/:id
 //@access Private
+export const updateHowl = async (req: NextApiRequest, res: NextApiResponse) => {
+  const {
+    query: { id },
+  } = req
+
+  const updateHowl = await Howl.findByIdAndUpdate(id)
+}

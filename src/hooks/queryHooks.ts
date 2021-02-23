@@ -45,7 +45,10 @@ export const useDeleteHowl = () => {
   })
 }
 
-export const useUpdateHowl = () => {
+export const useUpdateHowl = (howlId: string) => {
   const queryClient = useQueryClient()
-  return useMutation((howlId: string) => axios.patch(`/api/howl/${howlId}`))
+  return useMutation(
+    (howlTxt: { howl: string }) => axios.patch(`/api/howl/${howlId}`, howlTxt),
+    { onSuccess: () => {} }
+  )
 }

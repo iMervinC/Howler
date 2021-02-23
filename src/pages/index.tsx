@@ -3,7 +3,7 @@ import { useRouter } from 'next/router'
 import PageWarp from '@/components/PageWrap'
 import LoginPage from '@/components/LoginPage'
 import { useSession } from 'next-auth/client'
-import Loader from '@/components/Loader'
+import Loader from '@/components/UI/Loader'
 
 const Home: FC = () => {
   const [session, loading] = useSession()

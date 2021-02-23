@@ -16,6 +16,13 @@ export const useGetHowls = (options?: UseQueryOptions<HowlT[]>) => {
   return useQuery('howls', () => fetcher('/api/howl'), options)
 }
 
+export const useGetHowlById = (
+  _id: string,
+  options?: UseQueryOptions<HowlT>
+) => {
+  return useQuery(['howls', _id], () => fetcher(`/api/howl/${_id}`), options)
+}
+
 export const useCreateHowl = () => {
   const queryClient = useQueryClient()
   return useMutation(
@@ -45,10 +52,15 @@ export const useDeleteHowl = () => {
   })
 }
 
-export const useUpdateHowl = (howlId: string) => {
+export const useUpdateHowl = (_id: string) => {
   const queryClient = useQueryClient()
   return useMutation(
-    (howlTxt: { howl: string }) => axios.patch(`/api/howl/${howlId}`, howlTxt),
-    { onSuccess: () => {} }
+    (howlTxt: { howl: string }) => axios.patch(`/api/howl/${_id}`, howlTxt),
+    {
+      onSuccess: () => {
+        queryClient.invalidateQueries('howls')
+        queryClient.invalidateQueries(['howls', _id])
+      },
+    }
   )
 }

@@ -91,5 +91,11 @@ export const updateHowl = async (req: NextApiRequest, res: NextApiResponse) => {
     query: { id },
   } = req
 
-  const updateHowl = await Howl.findByIdAndUpdate(id)
+  try {
+    const updateHowl = await Howl.findByIdAndUpdate(id, req.body)
+    res.status(200).json(updateHowl)
+  } catch (error) {
+    res.status(400)
+    throw new Error('No howl found!')
+  }
 }

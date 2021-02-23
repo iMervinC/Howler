@@ -1,11 +1,10 @@
 import React, { FC, useState } from 'react'
-import { useCreateHowl } from '@/hooks/queryHooks'
-import axios from 'axios'
+import { useCreateHowl, useUpdateHowl } from '@/hooks/queryHooks'
 import { HowlUI, TxtHowl } from '@/types/UI.model'
 
-const TextHowl: FC<HowlUI> = ({ modal, onClose }) => {
+const TextHowl: FC<HowlUI> = ({ modal, onClose, howlT }) => {
   const [howl, setHowl] = useState<TxtHowl>({
-    value: '',
+    value: howlT ? howlT.howl : '',
     textlimit: 280,
     rows: 2,
     minRows: 2,
@@ -17,7 +16,7 @@ const TextHowl: FC<HowlUI> = ({ modal, onClose }) => {
     strokeDasharray: '',
   })
 
-  const mutation = useCreateHowl()
+  const mutation = howlT ? useUpdateHowl(howlT._id!) : useCreateHowl()
 
   // On Change Input Handler
   const changeHandler = (e: any) => {
@@ -82,7 +81,7 @@ const TextHowl: FC<HowlUI> = ({ modal, onClose }) => {
       onSubmit={submitHandler}
     >
       <textarea
-        className="flex-auto border-2 focus:border-custom focus-within:outline-none rounded-md p-1 self-start overflow-auto mb-3 w-full"
+        className="howl-text-area"
         placeholder="What's Howlin?"
         rows={howl.rows}
         value={howl.value}

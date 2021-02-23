@@ -45,3 +45,7 @@
 .page-wraper {
   @apply max-w-main w-main border-r-4 border-l-4 border-custom;
 }
+
+.howl-text-area {
+  @apply flex-auto border-2 focus:border-custom focus-within:outline-none rounded-md p-1 self-start overflow-auto mb-3 w-full;
+}

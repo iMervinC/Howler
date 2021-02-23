@@ -1,6 +1,6 @@
 import HowlModal from '@/components/UI/HowlModal'
 import { useDisclosure } from '@chakra-ui/react'
-import TextHowl from '../UI/TextHowl'
+import TextHowl from '../TextHowl'
 
 const NewHowl = () => {
   const { isOpen, onOpen, onClose } = useDisclosure()

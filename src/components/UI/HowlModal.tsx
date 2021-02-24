@@ -1,4 +1,3 @@
-import TextHowl from '@/components/UI/TextHowl'
 import {
   Modal,
   ModalOverlay,
@@ -11,18 +10,14 @@ import { FC } from 'react'
 const HowlModal: FC<{ isOpen: boolean; onClose: () => void }> = ({
   isOpen,
   onClose,
+  children,
 }) => {
   return (
     <Modal isOpen={isOpen} onClose={onClose} size={'2xl'}>
       <ModalOverlay />
       <ModalContent>
         <ModalCloseButton />
-        <ModalBody>
-          <div className="flex justify-center h-auto gap-5 mt-10 mb-5">
-            <img className="self-start" src="/pic1.svg" alt="profilePic" />
-            <TextHowl modal onClose={onClose} />
-          </div>
-        </ModalBody>
+        <ModalBody>{children}</ModalBody>
       </ModalContent>
     </Modal>
   )

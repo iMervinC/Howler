@@ -10,7 +10,7 @@
 
 ### Milestone 2
 
-- [] Frontend
+- Frontend
 - Splash Home
 - Authenticated Home
   - Page Layout

@@ -1,0 +1,18 @@
+{
+  "env": {
+    "MONGODB_URI": "@howler-mongodb",
+    "GITHUB_ID": "@howler-github-id",
+    "GITHUB_SECRET": "@howler-github-secret",
+    "SECRET": "@howl-secret",
+    "NEXTAUTH_URL": "VERCEL_URL"
+  },
+  "build": {
+    "env": {
+      "MONGODB_URI": "@howler-mongodb",
+    "GITHUB_ID": "@howler-github-id",
+    "GITHUB_SECRET": "@howler-github-secret",
+    "SECRET": "@howl-secret",
+    "NEXTAUTH_URL": "VERCEL_URL"
+    }
+  }
+}

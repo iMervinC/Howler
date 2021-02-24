@@ -1,3 +1,5 @@
+import { HowlT } from './Howl.model'
+
 export interface TxtHowl {
   value: string
   textlimit: number
@@ -9,4 +11,5 @@ export interface TxtHowl {
 export interface HowlUI {
   modal?: boolean
   onClose?: () => void
+  howlT?: HowlT
 }

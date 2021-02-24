@@ -1,5 +1,6 @@
 import HowlModal from '@/components/UI/HowlModal'
 import { useDisclosure } from '@chakra-ui/react'
+import TextHowl from '../TextHowl'
 
 const NewHowl = () => {
   const { isOpen, onOpen, onClose } = useDisclosure()
@@ -21,7 +22,13 @@ const NewHowl = () => {
           />
         </svg>
       </div>
-      <HowlModal isOpen={isOpen} onClose={onClose} />
+
+      <HowlModal isOpen={isOpen} onClose={onClose}>
+        <div className="flex justify-center h-auto gap-5 mt-10 mb-5">
+          <img className="self-start" src="/pic1.svg" alt="profilePic" />
+          <TextHowl modal onClose={onClose} />
+        </div>
+      </HowlModal>
     </>
   )
 }

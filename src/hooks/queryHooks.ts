@@ -59,7 +59,6 @@ export const useUpdateHowl = (_id: string) => {
     {
       onSuccess: () => {
         queryClient.invalidateQueries('howls')
-        queryClient.invalidateQueries(['howls', _id])
       },
     }
   )

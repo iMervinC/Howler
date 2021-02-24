@@ -16,7 +16,9 @@ const options: InitOptions = {
   session: {
     jwt: true,
   },
+
   callbacks: {
+    //Add userTag to User
     async session(session, user: customUser) {
       const sessionUser: customUser = {
         ...session.user,

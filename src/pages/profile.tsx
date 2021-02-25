@@ -1,19 +1,21 @@
 import { useEffect } from 'react'
 import { useRouter } from 'next/router'
 import { useSessionUser } from '@/hooks/useSessionUser'
+import { useGetUserHowls } from '@/hooks/queryHooks'
 import PageWarp from '@/components/PageWrap'
 import BreadCrumb from '@/components/UI/BreadCrumb'
-import HowlLoader from '@/components/HowlLoader'
+import HowlDisplay from '@/components/HowlDisplay'
 
 const User = () => {
   const route = useRouter()
-  const [sessionUser, session, loading] = useSessionUser()
+  const [sessionUser, session] = useSessionUser()
+  const { data } = useGetUserHowls(sessionUser?.id!)
 
+  //If no session display nothing and reroute to login
   useEffect(() => {
     !session && route.push('/')
   }, [session])
 
-  //If no session display nothing
   if (!session) return null
 
   return (
@@ -37,12 +39,7 @@ const User = () => {
             </div>
           </div>
         </div>
-        <div className="howl-wrapper transform translate-y-32">
-          <HowlLoader />
-          <HowlLoader />
-          <HowlLoader />
-          <HowlLoader />
-        </div>
+        <HowlDisplay data={data!} userPage />
       </div>
     </PageWarp>
   )

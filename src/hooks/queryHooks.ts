@@ -5,7 +5,7 @@ import {
   useQueryClient,
 } from 'react-query'
 import axios from 'axios'
-import { HowlT } from '@/types/Howl.model'
+import { HowlT, HowlUser } from '@/types/Howl.model'
 
 export const fetcher = async (_url: string) => {
   const { data } = await axios.get(_url)
@@ -13,14 +13,13 @@ export const fetcher = async (_url: string) => {
 }
 
 export const useGetHowls = (options?: UseQueryOptions<HowlT[]>) => {
-  return useQuery('howls', () => fetcher('/api/howl'), options)
+  return useQuery<HowlT[]>('howls', () => fetcher('/api/howl'), options)
 }
 
-export const useGetHowlById = (
-  _id: string,
-  options?: UseQueryOptions<HowlT>
-) => {
-  return useQuery(['howls', _id], () => fetcher(`/api/howl/${_id}`), options)
+export const useGetHowlById = (_id: string) => {
+  return useQuery<HowlT>(['howls', _id], () => fetcher(`/api/howl/${_id}`), {
+    enabled: false,
+  })
 }
 
 export const useCreateHowl = () => {
@@ -62,4 +61,35 @@ export const useUpdateHowl = (_id: string) => {
       },
     }
   )
+}
+
+//User Hooks
+export const useGetUser = (
+  userTag: string,
+  options?: UseQueryOptions<HowlUser>
+) => {
+  return useQuery(['user', userTag], () => fetcher(`/api/${userTag}`), options)
+}
+
+export const useGetUserHowls = (
+  userId: string,
+  options?: UseQueryOptions<HowlT[]>
+) => {
+  return useQuery(
+    ['howls', `user-${userId}`],
+    () => fetcher(`/api/${userId}/howls`),
+    options
+  )
+}
+
+export const useUserGetHowls = (userTag: string) => {
+  const { data: userProfile, isLoading: userStatus } = useGetUser(userTag)
+
+  const userId = userProfile?._id
+
+  const { data: howls, isLoading: howlStatus } = useGetUserHowls(userId!, {
+    enabled: !!userId,
+  })
+
+  return { userProfile, howls, userStatus, howlStatus }
 }

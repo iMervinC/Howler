@@ -8,23 +8,22 @@ import db from '@/utils/dbConnect'
 import PreHowl from '@/backend/model/howlModel'
 //Components
 import PageWarp from '@/components/PageWrap'
+import HowlDisplay from '@/components/HowlDisplay'
 import BreadCrumb from '@/components/UI/BreadCrumb'
 import HowlTextField from '@/components/Home/HowlTextField'
-import HowlLoader from '@/components/HowlLoader'
-import Howl from '@/components/Howl'
 
 const home: FC<{ data: HowlT[] }> = (props) => {
-  const [sessionUser, session, loading] = useSessionUser()
+  const [, session] = useSessionUser()
   const route = useRouter()
-  const { data, status } = useGetHowls({
+  const { data, isLoading } = useGetHowls({
     initialData: props.data,
   })
 
+  //If no session display nothing and reroute
   useEffect(() => {
     !session && route.push('/')
   }, [session])
 
-  //If no session display nothing
   if (!session) return null
 
   return (
@@ -32,17 +31,7 @@ const home: FC<{ data: HowlT[] }> = (props) => {
       <BreadCrumb page="home" />
       <div className="h-full transform -translate-y-20 overflow-auto scroll">
         <HowlTextField />
-        <div className="howl-wrapper">
-          {data?.map((howl) => (
-            <Howl
-              key={howl._id}
-              _id={howl._id}
-              howl={howl.howl}
-              user={howl.user}
-              createdAt={howl.createdAt}
-            />
-          ))}
-        </div>
+        <HowlDisplay data={data!} isLoading={isLoading} />
       </div>
     </PageWarp>
   )

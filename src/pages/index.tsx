@@ -1,3 +1,4 @@
+import Head from 'next/head'
 import { FC, useEffect } from 'react'
 import { useRouter } from 'next/router'
 import PageWarp from '@/components/PageWrap'
@@ -14,7 +15,15 @@ const Home: FC = () => {
   }, [session])
 
   if (loading || session) {
-    return <Loader />
+    return (
+      <>
+        <Head>
+          <title>Loading...</title>
+          <link rel="icon" href="/pic1.svg" />
+        </Head>
+        <Loader />
+      </>
+    )
   }
 
   return (

@@ -16,7 +16,7 @@ import TextHowl from '../TextHowl'
 
 const HowlPopover: FC<{ howlId: string }> = ({ children, howlId }) => {
   const { isOpen, onOpen, onClose } = useDisclosure()
-  const { data, status } = useGetHowlById(howlId)
+  const { data, refetch, isLoading } = useGetHowlById(howlId)
 
   const deleteMutation = useDeleteHowl()
   const deleteHandler = (howlId: string) => {
@@ -28,7 +28,11 @@ const HowlPopover: FC<{ howlId: string }> = ({ children, howlId }) => {
   return (
     <>
       <Popover styleConfig={{ w: '90px' }}>
-        <PopoverTrigger>{children}</PopoverTrigger>
+        <PopoverTrigger>
+          <div className="howl-trigger" onClick={() => refetch()}>
+            {children}
+          </div>
+        </PopoverTrigger>
         <Portal>
           <PopoverContent>
             <PopoverArrow />

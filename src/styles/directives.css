@@ -49,3 +49,11 @@
 .howl-text-area {
   @apply flex-auto border-2 focus:border-custom focus-within:outline-none rounded-md p-1 self-start overflow-auto mb-3 w-full;
 }
+
+.howl {
+  @apply h-auto bg-custom w-11/12 p-4 rounded-md text-white relative;
+}
+
+.howl-trigger {
+  @apply absolute right-2 top-2 cursor-pointer;
+}

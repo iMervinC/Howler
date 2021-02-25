@@ -3,7 +3,7 @@ export interface InitialHowlState {
   nav: howlNav
 }
 
-export type howlNav = 'home' | 'profile'
+export type howlNav = 'home' | 'profile' | 'user'
 
 //Howl Actions
 export type HowlActions = {
@@ -30,4 +30,12 @@ export interface HowlT {
     userTag: string
   }
   createdAt?: Date
+}
+
+export interface HowlUser {
+  _id: string
+  name: string
+  image: string
+  userTag: string
+  email: string
 }

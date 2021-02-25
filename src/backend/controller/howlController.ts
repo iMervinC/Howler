@@ -60,7 +60,8 @@ export const getHowlById = async (
     }
     res.status(200).json(howlById)
   } catch (error) {
-    res.status(400).json({ success: false })
+    res.status(404)
+    throw new Error('No howl found!')
   }
 }
 
@@ -80,6 +81,7 @@ export const deleteHowl = async (req: NextApiRequest, res: NextApiResponse) => {
     res.status(200).json({ success: true, data: {} })
   } catch (error) {
     res.status(400).json({ success: false })
+    throw new Error('No howl found!')
   }
 }
 

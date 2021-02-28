@@ -29,7 +29,7 @@ const Nav: FC<any> = ({ navigation }) => {
   if (loading || !session) return <div className="sm:w-side relative" />
 
   return (
-    <div className="sm:w-side relative">
+    <div className="w-side">
       <nav className="flex flex-col justify-end h-screen px-0">
         {/* Logo */}
         <div className="flex items-center h-20 justify-center sm:justify-start ">

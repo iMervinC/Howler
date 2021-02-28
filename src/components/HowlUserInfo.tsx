@@ -6,7 +6,7 @@ const HowlUserInfo: FC<{ user: HowlUser; isLoading: boolean }> = ({
   isLoading,
 }) => {
   return (
-    <div className="h-32 bg-black transform translate-y-20">
+    <div className="h-32 bg-black ">
       <div className="flex items-center gap-4 transform translate-y-1/2 ml-5">
         {!isLoading ? (
           <>

@@ -34,6 +34,9 @@ module.exports = {
         side: '100px',
         window: '375px',
       },
+      height: {
+        howl: 'calc(100% - 5rem)',
+      },
     },
   },
   variants: {

@@ -8,7 +8,7 @@ const BreadCrumb: FC<{ page: 'home' | 'profile' }> = ({ page }) => {
   const router = useRouter()
 
   return (
-    <div className="flex items-center  h-20 bg-custom px-10 relative z-50">
+    <div className="flex items-center  h-20 bg-custom px-10 relative">
       {page === 'profile' && (
         <FontAwesomeIcon
           onClick={() => router.back()}

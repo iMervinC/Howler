@@ -25,7 +25,7 @@ const User = () => {
   return (
     <PageWarp title="Profile">
       <BreadCrumb page="profile" />
-      <div className="h-full transform -translate-y-20 overflow-auto scroll">
+      <div className="howl-container scroll">
         <HowlUserInfo user={userProfile!} isLoading={userStatus} />
         <HowlDisplay data={howls!} userPage isLoading={howlStatus} />
       </div>

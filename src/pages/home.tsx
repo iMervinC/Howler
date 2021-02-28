@@ -29,7 +29,7 @@ const home: FC<{ data: HowlT[] }> = (props) => {
   return (
     <PageWarp title={'Home'}>
       <BreadCrumb page="home" />
-      <div className="h-full transform -translate-y-20 overflow-auto scroll">
+      <div className="howl-container scroll">
         <HowlTextField />
         <HowlDisplay data={data!} isLoading={isLoading} />
       </div>

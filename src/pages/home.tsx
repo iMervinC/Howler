@@ -13,15 +13,9 @@ import BreadCrumb from '@/components/UI/BreadCrumb'
 import HowlTextField from '@/components/Home/HowlTextField'
 
 const home: FC<{ data: HowlT[] }> = (props) => {
-  const [, session] = useSessionUser()
+  const [sessionUser, session] = useSessionUser()
   const route = useRouter()
-  const { data, isLoading } = useGetHowls(
-
-    // {
-    //   initialData: props.data,
-    // }
-
-  )
+  const { data, isLoading } = useGetHowls()
 
   //If no session display nothing and reroute
   useEffect(() => {
@@ -52,4 +46,4 @@ export default home
 //   return {
 //     props: { data: result },
 //   }
-}
+// }

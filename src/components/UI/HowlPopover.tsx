@@ -41,14 +41,14 @@ const HowlPopover: FC<{ howlId: string }> = ({ children, howlId }) => {
                 className="w-full text-custom hover:bg-custom hover:text-white cursor-pointer px-2"
                 onClick={onOpen}
               >
-                <FontAwesomeIcon icon={faEdit} />
+                <FontAwesomeIcon icon={faEdit} className="h-4 inline-block" />
                 <span> Edit</span>
               </div>
               <div
                 className="w-full text-custom hover:bg-custom hover:text-white cursor-pointer px-2"
                 onClick={() => deleteHandler(howlId)}
               >
-                <FontAwesomeIcon icon={faTrash} />
+                <FontAwesomeIcon icon={faTrash} className="h-4 inline-block" />
                 <span> Delete</span>
               </div>
             </PopoverBody>

@@ -15,9 +15,13 @@ import HowlTextField from '@/components/Home/HowlTextField'
 const home: FC<{ data: HowlT[] }> = (props) => {
   const [, session] = useSessionUser()
   const route = useRouter()
-  const { data, isLoading } = useGetHowls({
-    initialData: props.data,
-  })
+  const { data, isLoading } = useGetHowls(
+
+    // {
+    //   initialData: props.data,
+    // }
+
+  )
 
   //If no session display nothing and reroute
   useEffect(() => {
@@ -39,13 +43,13 @@ const home: FC<{ data: HowlT[] }> = (props) => {
 
 export default home
 
-export const getServerSideProps: GetServerSideProps = async (context) => {
-  db()
-  const howls = await PreHowl.find({})
-    .populate('user', 'name image userTag')
-    .sort({ createdAt: -1 })
-  const result = JSON.parse(JSON.stringify(howls))
-  return {
-    props: { data: result },
-  }
+// export const getServerSideProps: GetServerSideProps = async (context) => {
+//   db()
+//   const howls = await PreHowl.find({})
+//     .populate('user', 'name image userTag')
+//     .sort({ createdAt: -1 })
+//   const result = JSON.parse(JSON.stringify(howls))
+//   return {
+//     props: { data: result },
+//   }
 }

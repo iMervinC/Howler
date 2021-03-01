@@ -2,7 +2,7 @@ import React, { FC } from 'react'
 import { useRouter } from 'next/router'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
-import SearchBar from './SearchBar'
+// import SearchBar from './SearchBar'
 
 const BreadCrumb: FC<{ page: 'home' | 'profile' }> = ({ page }) => {
   const router = useRouter()
@@ -18,7 +18,7 @@ const BreadCrumb: FC<{ page: 'home' | 'profile' }> = ({ page }) => {
         />
       )}
       <h1 className="text-lg text-white font-bold capitalize">{page}</h1>
-      {page === 'home' && <SearchBar />}
+      {/* {page === 'home' && <SearchBar />} */}
     </div>
   )
 }

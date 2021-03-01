@@ -23,7 +23,7 @@ const Howl: FC<HowlT> = ({ howl, user, createdAt, _id }) => {
     >
       {sessionUser?.userTag === user.userTag && (
         <HowlPopover howlId={_id!}>
-          <FontAwesomeIcon icon={faEllipsisV} width="20" />
+          <FontAwesomeIcon icon={faEllipsisV} className="w-2 h-auto" />
         </HowlPopover>
       )}
       <Link href="/[user]" as={`/${user.userTag}`}>

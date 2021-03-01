@@ -1,11 +1,8 @@
 import { FC, useEffect } from 'react'
-import { GetServerSideProps } from 'next'
 import { useRouter } from 'next/router'
 import { useSessionUser } from '@/hooks/useSessionUser'
 import { HowlT } from '@/types/Howl.model'
 import { useGetHowls } from '@/hooks/queryHooks'
-import db from '@/utils/dbConnect'
-import PreHowl from '@/backend/model/howlModel'
 //Components
 import PageWarp from '@/components/PageWrap'
 import HowlDisplay from '@/components/HowlDisplay'
@@ -36,14 +33,3 @@ const home: FC<{ data: HowlT[] }> = (props) => {
 }
 
 export default home
-
-// export const getServerSideProps: GetServerSideProps = async (context) => {
-//   db()
-//   const howls = await PreHowl.find({})
-//     .populate('user', 'name image userTag')
-//     .sort({ createdAt: -1 })
-//   const result = JSON.parse(JSON.stringify(howls))
-//   return {
-//     props: { data: result },
-//   }
-// }

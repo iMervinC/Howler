@@ -45,8 +45,7 @@ const UserNav = () => {
           </div>
           <FontAwesomeIcon
             icon={faEllipsisH}
-            width="20"
-            className="ml-auto hidden md:block"
+            className="ml-auto hidden w-2 h-auto md:block"
           />
         </div>
       </PopoverTrigger>

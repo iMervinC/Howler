@@ -16,11 +16,11 @@
 }
 
 .hover-shadow {
-  @apply hover:bg-custom-linkHover rounded-full p-2 sm:py-1 sm:px-4;
+  @apply hover:bg-custom-linkHover rounded-full p-2 md:py-1 md:px-4;
 }
 
 .nav-link {
-  @apply flex items-center justify-center sm:justify-start hover:text-white sm:w-2/3;
+  @apply flex items-center justify-center md:justify-start hover:text-white md:w-2/3;
 }
 
 .howl-btn {
@@ -52,11 +52,11 @@
 }
 
 .new-howl {
-  @apply bg-custom text-white sm:px-4 sm:py-1 rounded-full sm:rounded-md text-base flex items-center justify-center sm:w-24 cursor-pointer;
+  @apply bg-custom text-white md:px-4 md:py-1 rounded-full md:rounded-md text-base flex items-center justify-center md:w-24 cursor-pointer;
 }
 
 .page-wraper {
-  @apply w-full sm:w-main  border-r-4 border-l-4 border-custom;
+  @apply w-mobileMain md:w-main  border-r-4 border-l-4 border-custom;
 }
 
 .howl-text-area {

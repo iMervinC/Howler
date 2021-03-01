@@ -21,6 +21,7 @@ module.exports = {
         },
       },
       width: {
+        mobileMain: 'calc(100% - 50px)',
         side: '250px',
         sideM: '50px',
         main: '600px',
@@ -31,7 +32,7 @@ module.exports = {
       },
       minWidth: {
         main: '300px',
-        side: '100px',
+        side: '250px',
         window: '375px',
       },
       height: {

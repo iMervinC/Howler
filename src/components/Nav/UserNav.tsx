@@ -31,13 +31,13 @@ const UserNav = () => {
   return (
     <Popover>
       <PopoverTrigger>
-        <div className="flex items-center justify-start gap-2 h-14 mt-auto mb-3 sm:mx-2 sm:px-5  cursor-pointer hover-shadow">
+        <div className="flex items-center justify-start gap-2 h-14 mt-auto mb-3 md:mx-2 md:px-5  cursor-pointer hover-shadow">
           <img
             src={`${sessionUser?.image}`}
             alt="User Picture"
             className="rounded-full w-9 h-auto"
           />
-          <div className="sm:flex flex-col hidden">
+          <div className="md:flex flex-col hidden">
             <span className="font-semibold">
               {shortUser(sessionUser?.name!)}
             </span>
@@ -46,7 +46,7 @@ const UserNav = () => {
           <FontAwesomeIcon
             icon={faEllipsisH}
             width="20"
-            className="ml-auto hidden sm:block"
+            className="ml-auto hidden md:block"
           />
         </div>
       </PopoverTrigger>

@@ -7,8 +7,8 @@ const NewHowl = () => {
 
   return (
     <>
-      <div className="new-howl sm:ml-6" onClick={onOpen}>
-        <span className="hidden sm:block">Howl</span>
+      <div className="new-howl md:ml-6" onClick={onOpen}>
+        <span className="hidden md:block">Howl</span>
         <svg
           width="36"
           height="37"

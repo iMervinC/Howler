@@ -33,4 +33,6 @@
 
 ### Milestone 4
 
-- React Query `pending`
+- React Query
+- UX Animations
+- Deployment `pending`

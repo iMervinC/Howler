@@ -7,7 +7,7 @@ import { AnimatePresence } from 'framer-motion'
 interface HowlDisplay {
   data: HowlT[]
   userPage?: boolean
-  isLoading: boolean
+  isLoading?: boolean
 }
 
 const HowlDisplay: FC<HowlDisplay> = ({ data, userPage, isLoading }) => {

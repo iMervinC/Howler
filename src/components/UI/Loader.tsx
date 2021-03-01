@@ -19,7 +19,7 @@ const loadingAnim = {
 
 const Loader = () => {
   return (
-    <div className="flex items-center justify-center">
+    <div className="flex items-center justify-center w-main">
       <motion.div
         className="bg-custom h-40 w-40 rounded-md"
         variants={loadingAnim}

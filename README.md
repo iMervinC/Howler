@@ -1,7 +1,5 @@
 ## Howler
 
-### A twitter clone
-
 ### Milestone 1
 
 - [x] Scaffold Next.js

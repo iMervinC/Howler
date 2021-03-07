@@ -1,4 +1,5 @@
 ## Howler
+<img src="https://raw.githubusercontent.com/iMervinC/Howler/main/howlPrev.gif"/>
 
 ### Milestone 1
 

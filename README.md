@@ -1,8 +1,8 @@
 ## Howler
 <img src="https://raw.githubusercontent.com/iMervinC/Howler/main/howlPrev.gif"/>
 
-[Live Demo](https://vercel.com/imervinc/howler/311BSu3zbYPukcSDHZ9v9xWor97f)
-[Blog](https://dev.to/imervinc/howler-a-basic-fullstack-next-js-app-using-its-api-routes-w-react-query-51h7)
+#### [Live Demo](https://vercel.com/imervinc/howler/311BSu3zbYPukcSDHZ9v9xWor97f)
+#### [Blog](https://dev.to/imervinc/howler-a-basic-fullstack-next-js-app-using-its-api-routes-w-react-query-51h7)
 
 ### Milestone 1
 
